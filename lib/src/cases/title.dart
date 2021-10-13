@@ -15,7 +15,7 @@ class Title extends ChangeCaseHelper {
 
   @override
   String transform(String section, int index, List<String> parts) =>
-      convert(section);
+      throw UnimplementedError();
 
   @override
   String convert(String stringToFormat) {
