@@ -1,0 +1,21 @@
+name: change_case
+description: A Very Good Project created by Very Good CLI.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.13.0 <3.0.0"
+
+dependencies:
+  enum_assist_annotation:
+    git:
+      url: git://github.com/mrgnhnt96/enum_assist.git
+      path: packages/enum_assist_annotation
+
+dev_dependencies:
+  enum_assist:
+    git:
+      url: git://github.com/mrgnhnt96/enum_assist.git
+      path: packages/enum_assist
+  test: ">=1.17.0 <1.18.0"
+  very_good_analysis: ^2.3.0
