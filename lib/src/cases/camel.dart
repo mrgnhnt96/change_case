@@ -12,4 +12,9 @@ class Camel extends ChangeCaseHelper {
 
     return Pascal().transform(section, index, parts);
   }
+
+  @override
+  String convert(String stringToFormat) {
+    return super.convert(stringToFormat.trim());
+  }
 }
