@@ -8,10 +8,15 @@ class Sentence extends ChangeCaseHelper {
 
   @override
   String transform(String section, int index, List<String> parts) {
-    var string = section.toLowerCase();
+    section = section.toLowerCase();
 
-    if (index == 0) string = UpperFirst().transform(string, index, parts);
+    if (index == 0) section = UpperFirst().transform(section, index, parts);
 
-    return string;
+    return section;
+  }
+
+  @override
+  String convert(String stringToFormat) {
+    return super.convert(stringToFormat.trim());
   }
 }
