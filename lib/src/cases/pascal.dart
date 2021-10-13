@@ -7,6 +7,8 @@ class Pascal extends ChangeCaseHelper {
 
   @override
   String transform(String section, int index, List<String> parts) {
+    if (section.isEmpty) return section;
+
     final firstLetter = section.substring(0, 1);
     final lowerLetters = section.substring(1).toLowerCase();
 

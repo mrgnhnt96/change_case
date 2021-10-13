@@ -7,7 +7,11 @@ class LowerFirst extends ChangeCaseHelper {
 
   @override
   String transform(String section, int index, List<String> parts) {
-    return section.substring(0, 1).toLowerCase() + section.substring(1);
+    if (section.isEmpty) return section;
+
+    final string = section.substring(0, 1).toLowerCase() + section.substring(1);
+
+    return string;
   }
 
   @override
