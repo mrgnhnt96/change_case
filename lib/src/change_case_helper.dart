@@ -1,6 +1,7 @@
 import 'package:meta/meta.dart';
 
-// Support camel case ("camelCase" -> "camel Case" and "CAMELCase" -> "CAMEL Case").
+// Support camel case ("camelCase" -> "camel Case"
+// and "CAMELCase" -> "CAMEL Case").
 final _lowerOrNumToUpperPattern = RegExp('([a-z0-9])(?:•)*([A-Z])');
 final _upperToLowerPattern = RegExp('([A-Z])(?:•)*([A-Z][a-z])');
 
@@ -10,6 +11,10 @@ final _defaults = [
 ];
 
 final _defaultStrip = RegExp('[^A-Z0-9]+', caseSensitive: false);
+
+// Dunno if we wanna use this or not...
+// ignore: unused_element
+final _lowerToNumOrUpperStrip = RegExp('([a-z])([A-Z0-9])');
 
 /// {@template change_case.options}
 /// The options to use when converting a string.
