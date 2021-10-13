@@ -1,121 +1,100 @@
+import 'package:change_case/src/cases/cases.dart';
 import 'package:change_case/src/enums.dart';
-import 'package:meta/meta.dart';
+
+void main() {
+  final newString = 'hello woRld_with-Test^123 and cool'.toLowerCase();
+
+// snake
+// sponge
+// swap
+// title
+// upper
+// upperFirst
+
+  print(newString);
+}
 
 /// Extensions getters on [String] to preform common, identifier-related
 /// conversions.
 extension ChangeCase on String {
-  /// Returns `this` converted to
-  /// [kebab-case](https://en.wikipedia.org/wiki/Kebab_case),
-  /// where words are seperated by a hyphen.
-  ///
-  /// Examples:
-  ///
-  /// ```text
-  /// 'simple'   -> 'simple',
-  /// 'twoWords' -> 'two-words'
-  /// 'FirstBig' -> 'first-big'
-  /// ```
-  ///
-  /// Whitespace is not considered or affected.
-  // String get kebab => _fixCase('-');
+  /// {@macro change_case.type.camel}
+  String toCamelCase() => _fixCase(ChangeCaseType.camel);
 
-  /// Returns `this` converted to
-  /// [snake_case](https://en.wikipedia.org/wiki/Snake_case),
-  /// where words are seperated by underscore.
-  ///
-  /// Examples:
-  ///
-  /// ```text
-  /// 'simple'   -> 'simple',
-  /// 'twoWords' -> 'two_words'
-  /// 'FirstBig' -> 'first_big'
-  /// ```
-  ///
-  /// Whitespace is not considered or affected.
-  // String get snake => _fixCase('_', ChangeCaseType.snake);
+  /// {@macro change_case.type.capital}
+  String toCapitalCase() => _fixCase(ChangeCaseType.capital);
 
-  // String get camel => _fixCase('');
+  /// {@macro change_case.type.constant}
+  String toConstantCase() => _fixCase(ChangeCaseType.constant);
 
-  /// Returns `this` where the first character is capitalized.
-  ///
-  /// Examples:
-  ///
-  /// ```text
-  /// 'simple'   -> 'Simple',
-  /// 'twoWords' -> 'TwoWords'
-  /// 'FirstBig' -> 'FirstBig'
-  /// ```
-  ///
-  /// Whitespace is not considered or affected.
-  String get pascal {
-    if (isEmpty) {
-      return '';
-    }
+  /// {@macro change_case.type.dot}
+  String toDotCase() => _fixCase(ChangeCaseType.dot);
 
-    return this[0].toUpperCase() + substring(1);
+  /// {@macro change_case.type.header}
+  String toHeaderCase() => _fixCase(ChangeCaseType.header);
+
+  /// {@macro change_case.type.kebab}
+  String toKebabCase() => _fixCase(ChangeCaseType.kebab);
+
+  /// Same as [toKebabCase]
+  ///
+  /// {@macro change_case.type.kebab}
+  String toParamCase() => _fixCase(ChangeCaseType.kebab);
+
+  /// {@macro change_case.type.lower_first}
+  String toLowerFirstCase() => _fixCase(ChangeCaseType.lowerFirst);
+
+  /// {@macro change_case.type.no}
+  String toNoCase() => _fixCase(ChangeCaseType.no);
+
+  /// {@macro change_case.type.pascal}
+  String toPascalCase() => _fixCase(ChangeCaseType.pascal);
+
+  /// {@macro change_case.type.path}
+  String toPathCase([String? separator]) =>
+      _fixCase(ChangeCaseType.path, separator);
+
+  /// {@macro change_case.type.sentence}
+  String toSentenceCase() => _fixCase(ChangeCaseType.sentence);
+
+  /// {@macro change_case.type.snake}
+  String toSnakeCase() => _fixCase(ChangeCaseType.snake);
+
+  /// {@macro change_case.type.sponge}
+  String toSpongeCase() => _fixCase(ChangeCaseType.sponge);
+
+  /// {@macro change_case.type.swap}
+  String toSwapCase() => _fixCase(ChangeCaseType.swap);
+
+  /// {@macro change_case.type.title}
+  String toTitleCase() => _fixCase(ChangeCaseType.title);
+
+  /// {@macro change_case.type.upperFirst}
+  String toUpperFirstCase() => _fixCase(ChangeCaseType.upperFirst);
+
+  /// Checkes if whole string is lowercase.
+  bool isLowerCase() => toLowerCase() == this && toUpperCase() != this;
+
+  /// Checkes if whole string is uppercase.
+  bool isUpperCase() => toLowerCase() != this && toUpperCase() == this;
+
+  String _fixCase(ChangeCaseType caseType, [String? separator]) {
+    return caseType.map(
+      camel: () => Camel().convert(this),
+      constant: () => Constant().convert(this),
+      dot: () => Dot().convert(this),
+      kebab: () => Kebab().convert(this),
+      lowerFirst: () => LowerFirst().convert(this),
+      no: () => No().convert(this),
+      pascal: () => Pascal().convert(this),
+      path: () => Path(separator).convert(this),
+      sentence: () => Sentence().convert(this),
+      snake: () => Snake().convert(this),
+      swap: () => Swap().convert(this),
+      title: () => Title().convert(this),
+      upperFirst: () => UpperFirst().convert(this),
+      capital: () => Capital().convert(this),
+      header: () => Header().convert(this),
+      sponge: () => Sponge().convert(this),
+    )();
   }
-
-  String _fixCase(String separator, ChangeCaseType caseType) {
-    final formatted = resetToCamelCase(this);
-    String _toUpperCase(String s) => s.toUpperCase();
-    String _toLowerCase(String s) => s.toLowerCase();
-    String _toTitleCase(String s) =>
-        s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase();
-
-    return this;
-  }
-
-  /// Returns `this` with all leading underscore characters removed.
-  String get nonPrivate => replaceFirst(RegExp('^_*'), '');
-}
-
-@visibleForTesting
-String resetToCamelCase(String s) {
-  if (s.isEmpty) return '';
-
-  s = s.trim();
-
-  String split(Pattern deliminator) {
-    final sections = s.split(deliminator);
-
-    final first = sections.first.toLowerCase();
-
-    if (sections.length == 1) {
-      return first;
-    }
-
-    final remaining = sections
-        .sublist(1)
-        .map((st) => st.substring(0, 1).toUpperCase() + st.substring(1))
-        .join();
-
-    return '$first$remaining';
-  }
-
-  /// check for snake case
-  if (s.contains('_')) s = split('_');
-
-  if (s.contains('-')) s = split('-');
-
-  if (s.contains(' ')) s = split(' ');
-
-  final numbers = RegExp(r'\d');
-  final capitalLetters = RegExp('[A-Z]');
-  final allletters = RegExp('[a-zA-Z]');
-
-  if (s.startsWith(numbers)) {
-    s = s.replaceFirstMapped(allletters, (match) {
-      final letter = match.group(0)!;
-
-      return letter.toLowerCase();
-    });
-  }
-
-  return s.replaceAllMapped(capitalLetters, (match) {
-    final letter = match.group(0)!;
-
-    if (match.start > 0) return letter;
-
-    return letter.toLowerCase();
-  });
 }
