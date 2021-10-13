@@ -43,20 +43,9 @@ abstract class ChangeCaseHelper {
     // Trim the delimiter from around the output string
     final rawString = stripString(stringToFormat);
 
-    const start = 0;
-    final end = rawString.length;
-
-    // while (rawString.substring(start, start + 1) == _placeHolder) {
-    //   start++;
-    // }
-    // while (rawString.substring(end - 1, end) == _placeHolder) {
-    //   end--;
-    // }
-
     var index = 0;
     // Transform each token independently
     return rawString
-        .substring(start, end)
         .split(_placeHolder)
         .map((s) => transform(s, index++, []))
         .join(deliminator);
@@ -80,13 +69,9 @@ abstract class ChangeCaseHelper {
   /// strips the [string] of characters with the [strip] pattern
   @protected
   String stripString(String string) {
-    print('original: $string');
     final splitStr = splitString(string);
-    print('splitStr: $splitStr');
 
     final stripStr = splitStr.replaceAllMapped(strip, (match) => _placeHolder);
-
-    print('stripStr: $stripStr');
 
     return stripStr;
   }
