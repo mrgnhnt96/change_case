@@ -1,19 +1,6 @@
 import 'package:change_case/src/cases/cases.dart';
 import 'package:change_case/src/enums.dart';
 
-void main() {
-  final newString = 'hello woRld_with-Test^123 and cool'.toLowerCase();
-
-// snake
-// sponge
-// swap
-// title
-// upper
-// upperFirst
-
-  print(newString);
-}
-
 /// Extensions getters on [String] to preform common, identifier-related
 /// conversions.
 extension ChangeCase on String {
