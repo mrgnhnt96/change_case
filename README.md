@@ -30,6 +30,9 @@ These functions come with [`package:change_case`]
       - [toLowerCaseFirst](#tolowercasefirst)
       - [toUpperCaseFirst](#touppercasefirst)
       - [toSpongeCase](#tospongecase)
+  - [Configuration](#configuration)
+    - [Patterns](#patterns)
+    - [Placeholder](#placeholder)
   - [Related](#related)
 
 #### [toCamelCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/camel)
@@ -178,6 +181,70 @@ These functions come with [`package:change_case`]
 'Test String'.toSpongeCase(); // 'tEst stRINg'
 ```
 
+## Configuration
+
+> [`package:change_case`] has a configuration file, [`ChangeCaseConfig`], that you can use to update `splitPatterns`, `stripPatterns`, and the `placeholder` which will be applied to most
+function listed above.
+
+__I don't suggest changing these unless you know what you are doing 😁__
+
+### Patterns
+
+Change case uses `RegExp` to split & replace characters of the string.
+While they are great at what they do, you may want to update or add new patterns.
+
+These patterns can be updated by using the [`ChangeCaseConfig`]`.setUp(splitPatterns: [...], stripPatterns: [...])`
+
+The default patterns are:
+
+> _Note_: `(?:•)*` is used to match any "`•`" ([`placeholder`](#placeholder)) character.
+
+- Split
+  - `ChangeCaseConfig.lowerOrNumToUpperPattern`
+
+    ```dart
+    // matches lowercase or numeric char to uppercase char
+    RegExp('([a-z0-9])(?:•)*([A-Z])')
+    ```
+
+  - `ChangeCaseConfig.lowerOrNumToUpperPattern`
+
+    ```dart
+    // matches uppercase char to uppercase followed by lowercase char
+    RegExp('([A-Z])(?:•)*([A-Z][a-z])')
+    ```
+
+- Strip
+  - `ChangeCaseConfig.upperToLowerPattern`
+
+    ```dart
+    // matches any non-alphanumeric char
+    RegExp('[^A-Z0-9]+', caseSensitive: false)
+    ```
+
+---
+
+### Placeholder
+
+> can be configured with [`ChangeCaseConfig`]`.setUp(placeholder: ...)`
+
+The `placeholder` is a string that is added and used as a reference to configure each case.
+
+The default placeholder is "`•`"
+
+For example:
+
+```dart
+final string = 'test stringCase';
+print(string.toCamelCase()); // expected: 'testStringCase'
+
+// runs splitPatterns, returns "test string•Case"
+// runs stripPatterns, returns "test•string•Case"
+// runs camel case logic, returns "testStringCase"
+```
+
+This string needs to be a unique character that is not used in the string.
+
 ## Related
 
 - [Meteor](https://github.com/Konecty/change-case)
@@ -191,3 +258,4 @@ These functions come with [`package:change_case`]
 [very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
 [very_good_analysis_link]: https://pub.dev/packages/very_good_analysis
 [`package:change_case`]: https://github.com/mrgnhnt96/change_case
+[`ChangeCaseConfig`]: https://github.com/mrgnhnt96/change_case/blob/main/lib/src/change_case_config.dart
