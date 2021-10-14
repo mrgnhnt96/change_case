@@ -105,6 +105,10 @@ These functions come with [`package:change_case`]
 
 ```dart
 'test string'.toPathCase(); // 'test/string'
+
+// provide a separator override default '/'
+'test string'.toPathCase(r'\'); // 'test\string'
+
 ```
 
 #### [toSentenceCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/sentence)
