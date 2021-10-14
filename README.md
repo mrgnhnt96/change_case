@@ -2,6 +2,8 @@
 
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![License: MIT][license_badge]][license_link]
+[![codecov](https://codecov.io/gh/mrgnhnt96/change_case/branch/main/graph/badge.svg?token=X1KSFPADOZ)](https://codecov.io/gh/mrgnhnt96/change_case)
+<a href="https://github.com/tenhobi/effective_dart"><img src="https://img.shields.io/badge/style-effective_dart-40c4ff.svg" alt="style: effective dart"></a>
 
 > Transform a string between `camelCase`, `PascalCase`, `Capital Case`, `snake_case`, `param-case`, `CONSTANT_CASE` and others.
 
