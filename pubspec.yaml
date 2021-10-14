@@ -9,5 +9,8 @@ dependencies:
   meta: ^1.7.0
 
 dev_dependencies:
+  derry: ^1.4.3
   test: ">=1.17.0 <1.18.0"
   very_good_analysis: ^2.3.0
+
+scripts: derry.yaml
