@@ -6,6 +6,7 @@ class Path extends ChangeCaseHelper {
   Path([String? separator]) : _separator = separator ?? '/';
 
   final String _separator;
+
   @override
   String get deliminator => _separator;
 
