@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:change_case/src/change_case_helper.dart';
 
 final _smallWords = RegExp(
@@ -14,16 +16,14 @@ class Title extends ChangeCaseHelper {
   String get deliminator => '_';
 
   @override
-  String transform(String section, int index) => throw UnimplementedError();
-
-  @override
-  String convert(String stringToFormat) {
-    final matches = _tokens.allMatches(stringToFormat);
+  String transform(String section, int index) {
+    final matches = _tokens.allMatches(section);
     final buffer = StringBuffer();
 
     for (final match in matches) {
       final token = match.group(0)!;
       final index = match.start;
+      final maxSectionLength = min(token.length + 1, section.length);
 
       // Ignore already capitalized words.
       final isManualCase = _isManualCase.hasMatch(token);
@@ -31,18 +31,18 @@ class Title extends ChangeCaseHelper {
       // Ignore small words except at beginning or end.
       final isSmallWord = _smallWords.hasMatch(token);
       final isBeginning = index == 0;
-      final isEnd = index + token.length == stringToFormat.length;
-      final toBeCapitalized =
-          !isManualCase || (isSmallWord && !isBeginning && !isEnd);
+      final isEnd = index + token.length == section.length;
 
       // Ignore urls
-      final colonPosition = token.length - 1;
-      final isUrl =
-          stringToFormat.substring(colonPosition, colonPosition + 1) == ':';
-      final isWhitespace = _whiteSpace
-          .hasMatch(token.substring(colonPosition, colonPosition + 1));
+      final colonPosition = token.length;
+      final possibleColon = section.substring(colonPosition, maxSectionLength);
+      final isUrl = possibleColon == ':';
+      final endsWithWhitespace = _whiteSpace
+          .hasMatch(section.substring(token.length, maxSectionLength));
 
-      if (toBeCapitalized && !isUrl && !isWhitespace) {
+      if (!isManualCase &&
+          (!isSmallWord || isBeginning || isEnd) &&
+          (!isUrl || endsWithWhitespace)) {
         final replacement =
             token.replaceFirstMapped(_alphaNumeric, (alphaMatch) {
           final char = alphaMatch.group(0)!;
@@ -57,4 +57,7 @@ class Title extends ChangeCaseHelper {
 
     return '$buffer';
   }
+
+  @override
+  String convert(String stringToFormat) => transform(stringToFormat, 0);
 }
