@@ -2,6 +2,48 @@ import 'package:change_case/change_case.dart';
 import 'package:test/test.dart';
 
 void main() {
+  group('#isLowerCase', () {
+    test('should return true when all lowercase', () {
+      expect('abc'.isLowerCase(), isTrue);
+    });
+
+    test('should return false when contains capital letter', () {
+      expect('Abc'.isLowerCase(), isFalse);
+    });
+  });
+
+  group('#isUpperCase', () {
+    test('should return true when all uppercase', () {
+      expect('ABC'.isUpperCase(), isTrue);
+    });
+
+    test('should return false when contains lowercase letter', () {
+      expect('Abc'.isUpperCase(), isFalse);
+    });
+  });
+
+  group('#toSpongeCase', () {
+    test('returns string', () {
+      final result = 'string'.toSpongeCase();
+
+      expect(result, const TypeMatcher<String>());
+    });
+
+    test('returns string of same length', () {
+      const string = 'hElLo';
+      final result = string.toSpongeCase();
+
+      expect(result.length, string.length);
+    });
+
+    test('returns same word', () {
+      const string = 'HELLO';
+      final result = string.toSpongeCase();
+
+      expect(result.toLowerCase(), string.toLowerCase());
+    });
+  });
+
   group('#single word', () {
     group('all lower case', () {
       ChangeCaseTester.runTests(
