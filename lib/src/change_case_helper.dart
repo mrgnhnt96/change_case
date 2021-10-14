@@ -25,12 +25,15 @@ abstract class ChangeCaseHelper {
 
   /// transforms the [stringToFormat]
   String convert(String stringToFormat) {
-    // Trim the delimiter from around the output string
-    final rawString = stripString(stringToFormat);
+    // split
+    stringToFormat = splitString(stringToFormat);
+
+    // strip
+    stringToFormat = stripString(stringToFormat);
 
     var index = 0;
     // Transform each token independently
-    return rawString
+    return stringToFormat
         .split(_placeHolder)
         .map((s) => transform(s, index++))
         .join(deliminator);
@@ -39,6 +42,7 @@ abstract class ChangeCaseHelper {
   /// splits the [string] with the patterns retrieved from the config
   /// `ChangeCaseConfig.getSplitPatterns()`
   @protected
+  @visibleForTesting
   String splitString(String string) {
     for (final pattern in _split) {
       string = string.replaceAllMapped(
@@ -54,9 +58,8 @@ abstract class ChangeCaseHelper {
   /// retrieved from the config
   /// `ChangeCaseConfig.getSplitPatterns()`
   @protected
+  @visibleForTesting
   String stripString(String string) {
-    string = splitString(string);
-
     for (final pattern in _strip) {
       string = string.replaceAllMapped(pattern, (match) => _placeHolder);
     }
