@@ -1,3 +1,7 @@
+# 1.0.0+3
+
+- Update doc comments for each case to contain an example of the expected output
+
 # 1.0.0+2
 
 - Add example

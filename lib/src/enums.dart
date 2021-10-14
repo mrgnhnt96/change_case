@@ -3,86 +3,156 @@ part 'enums.ge.dart';
 /// All available string case formats
 enum ChangeCaseType {
   /// {@template change_case.type.camel}
-  /// convert to a string with the separators denoted
+  /// Converts to a string with the separators denoted
   /// by having the next letter capitalized
+  ///
+  /// example:
+  ///
+  /// `'hello_world' -> 'helloWorld'`
   /// {@endtemplate}
   camel,
 
   /// {@template change_case.type.constant}
-  /// convert to an upper case, underscore separated string
+  /// Converts to an upper case, underscore separated string
+  ///
+  /// example:
+  ///
+  /// `'hello world' -> 'HELLO_WORLD'`
   /// {@endtemplate}
   constant,
 
   /// {@template change_case.type.dot}
-  /// convert to a lower case period separated string
+  /// Converts to a lower case period separated string
+  ///
+  /// example:
+  ///
+  /// `'hello World' -> 'hello.World'`
   /// {@endtemplate}
   dot,
 
   /// {@template change_case.type.kebab}
-  /// Convert to a lower case, dash separated string
+  /// Converts to a lower case, dash separated string
+  ///
+  /// example:
+  ///
+  /// `'hello World' -> 'hello-world'`
   /// {@endtemplate}
   kebab,
 
   /// {@template change_case.type.lower_first}
-  /// convert to a string with the first character lower cased
+  /// Converts to a string with the first character lower cased
+  ///
+  /// example:
+  ///
+  /// `'Hello World' -> 'hello World'`
   /// {@endtemplate}
   lowerFirst,
 
   /// {@template change_case.type.no}
-  /// Convert the string without any casing (lower case, space separated)
+  /// Converts the string without any casing (lower case, space separated)
+  ///
+  /// example:
+  ///
+  /// `'Hello-World' -> 'hello world'`
   /// {@endtemplate}
   no,
 
   /// {@template change_case.type.pascal}
-  /// Convert to a string denoted in the same fashion as [camel]
+  /// Converts to a string denoted in the same fashion as [camel]
   /// but with the first letter capitalized
+  ///
+  /// example:
+  ///
+  /// `'hello_world' -> 'HelloWorld'`
   /// {@endtemplate}
   pascal,
 
   /// {@template change_case.type.path}
-  /// Convert to a lower case, slash separated string
+  /// Converts to a lower case, slash separated string
+  ///
+  /// example:
+  ///
+  /// `'hello World' -> 'hello/world'`
   /// {@endtemplate}
   path,
 
   /// {@template change_case.type.sentence}
-  /// Convert to a lower case, space separated string
+  /// Converts to a lower case, space separated string
+  /// with the first letter capitalized
+  ///
+  /// example:
+  ///
+  /// `'hello World' -> 'Hello world'`
   /// {@endtemplate}
   sentence,
 
   /// {@template change_case.type.snake}
-  /// Convert to a lower case, underscore separated string
+  /// Converts to a lower case, underscore separated string
+  ///
+  /// example:
+  ///
+  /// `'hello World' -> 'hello_world'`
   /// {@endtemplate}
   snake,
 
   /// {@template change_case.type.swap}
-  /// Convert to a string with every character case reversed
+  /// Converts to a string with every character case reversed
+  ///
+  /// example:
+  ///
+  /// `'Hello World' -> 'hELLO wORLD'`
   /// {@endtemplate}
   swap,
 
   /// {@template change_case.type.title}
-  /// convert to a space spearated string with the
+  /// Converts to a space separated string with the
+  ///
   /// first character of every word uppercased
+  /// __except__
+  /// - small words
+  /// - urls
+  /// - words that contain capital letters
+  ///
+  /// example:
+  ///
+  /// `'hello world' -> 'Hello World'`
   /// {@endtemplate}
   title,
 
   /// {@template change_case.type.upper_first}
-  /// Convert to a string with the first character upper cased
+  /// Converts to a string with the first character upper cased
+  ///
+  /// example:
+  ///
+  /// `'hello world' -> 'Hello world'`
   /// {@endtemplate}
   upperFirst,
 
   /// {@template change_case.type.capital}
-  /// Converts to a captialized word, space separated string
-  /// of every word
+  /// Converts to a lowercased, first letter captialized word,
+  /// space separated string of every word
+  ///
+  /// example:
+  ///
+  /// `'hello world' -> 'Hello World'`
   /// {@endtemplate}
   capital,
 
   /// {@template change_case.type.header}
   /// Converts to a captialized word, dash separated string
+  ///
+  /// example:
+  ///
+  /// `'hello world' -> 'Hello-World'`
   /// {@endtemplate}
   header,
 
   /// {@template change_case.type.sponge}
   /// Converts to a string with every character randomly lowercased/capitalized
+  ///
+  /// example:
+  ///
+  /// `'hello world' -> 'hElLo wOrLd'`
   /// {@endtemplate}
   sponge,
 }

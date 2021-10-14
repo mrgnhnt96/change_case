@@ -1,6 +1,6 @@
 name: change_case
 description: An extension on String to transform a string between camelCase, PascalCase, Capital Case, snake_case, param-case, CONSTANT_CASE and others.
-version: 1.0.0+2
+version: 1.0.0+3
 repository: https://github.com/mrgnhnt96/change_case
 homepage: https://github.com/mrgnhnt96/change_case
 
