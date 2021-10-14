@@ -116,7 +116,7 @@ class ChangeCaseConfig {
   /// - kebab-case
   /// - snake_case
   /// - no case
-  static final lowerToNumOrUpperStripPattern = RegExp('([a-z])([A-Z0-9])');
+  static final lowerToNumOrUpperPattern = RegExp('([a-z])([A-Z0-9])');
 
   /// the default strip patterns
   ///
@@ -134,8 +134,8 @@ class ChangeCaseConfig {
   ///
   /// ___Make sure to include the [placeholder] in your [splitPatterns]___
   static void setUp({
-    List<RegExp>? splitPatterns,
-    List<RegExp>? stripPatterns,
+    List<Pattern>? splitPatterns,
+    List<Pattern>? stripPatterns,
     String? placeholder,
   }) {
     if (splitPatterns != null) {
