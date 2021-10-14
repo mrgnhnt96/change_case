@@ -1,6 +1,6 @@
 /// The configuration class for `change_case`
 class ChangeCaseConfig {
-  const ChangeCaseConfig._();
+  const ChangeCaseConfig._(); // coverage: ignore-line
 
   /// The placeholder used to replace/format any matches in the string.
   /// - `•`
@@ -138,21 +138,22 @@ class ChangeCaseConfig {
     List<Pattern>? stripPatterns,
     String? placeholder,
   }) {
-    if (splitPatterns != null) {
-      assert(splitPatterns.isNotEmpty,
-          'You must provide at least one split pattern');
-    }
-    if (stripPatterns != null) {
-      assert(stripPatterns.isNotEmpty,
-          'You must provide at least one strip pattern');
-    }
-    if (placeholder != null) {
-      assert(placeholder.isNotEmpty, 'You must provide a placeholder');
+    // don't carry over old settings
+    _configSplitPatterns = null;
+    _configStripPatterns = null;
+    _configPlaceholder = null;
+
+    if (splitPatterns != null && splitPatterns.isNotEmpty) {
+      _configSplitPatterns = splitPatterns;
     }
 
-    _configSplitPatterns = splitPatterns;
-    _configStripPatterns = stripPatterns;
-    _configPlaceholder = placeholder;
+    if (stripPatterns != null && stripPatterns.isNotEmpty) {
+      _configStripPatterns = stripPatterns;
+    }
+
+    if (placeholder != null && placeholder.isNotEmpty) {
+      _configPlaceholder = placeholder;
+    }
   }
 
   static List<Pattern>? _configSplitPatterns;
