@@ -226,6 +226,14 @@ The default patterns are:
     RegExp('[^A-Z0-9]+', caseSensitive: false)
     ```
 
+  - `ChangeCaseConfig.lowerToNumOrUpperPattern` (Not included in default, but can be used to add or replace)
+
+    ```dart
+    // matches lowercase char to numeric or uppercase char
+    // changes the behavior to `word2019 -> word 2019` and `minifyURLs -> minify urls`
+    RegExp('([a-z])([A-Z0-9])')
+    ```
+
 ---
 
 ### Placeholder
