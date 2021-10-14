@@ -1,3 +1,7 @@
+# 1.0.0+2
+
+- Add example
+  
 # 1.0.0+1
 
 - Update links to github

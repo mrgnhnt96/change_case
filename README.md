@@ -31,8 +31,8 @@ These functions come with [`package:change_case`]
     - [toSwapCase](#toswapcase)
     - [isLowerCase](#islowercase)
     - [isUpperCase](#isuppercase)
-    - [toLowerCaseFirst](#tolowercasefirst)
-    - [toUpperCaseFirst](#touppercasefirst)
+    - [toLowerFirstCase](#tolowerfirstcase)
+    - [toUpperFirstCase](#toupperfirstcase)
     - [toSpongeCase](#tospongecase)
   - [Configuration](#configuration)
   - [Patterns](#patterns)
@@ -167,20 +167,20 @@ These functions come with [`package:change_case`]
 'test string'.isUpperCase(); // false
 ```
 
-### [toLowerCaseFirst](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/lower_first.dart)
+### [toLowerFirstCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/lower_first.dart)
 
 > Transforms the string with the first character in lower cased.
 
 ```dart
-'TEST'.toLowerCaseFirst(); // 'tEST'
+'TEST'.toLowerFirstCase(); // 'tEST'
 ```
 
-### [toUpperCaseFirst](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/upper_first.dart)
+### [toUpperFirstCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/upper_first.dart)
 
 > Transforms the string with the first character in upper cased.
 
 ```dart
-'test'.toUpperCaseFirst(); // 'Test'
+'test'.toUpperFirstCase(); // 'Test'
 ```
 
 ### [toSpongeCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/sponge.dart)
