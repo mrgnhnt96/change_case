@@ -2,7 +2,7 @@ import 'package:change_case/src/cases/camel.dart';
 import 'package:test/test.dart';
 
 void main() {
-  late final Camel camel;
+  late Camel camel;
 
   setUp(() {
     camel = Camel();
@@ -15,9 +15,30 @@ void main() {
   });
 
   group('#transform', () {
-    test('first section returns lower case', () {
-      final expected = 'lower';
-      final actual = camel.transform('Lower', 1);
+    test('index 0 returns lower case', () {
+      final result = camel.transform('Hello', 0);
+
+      expect(result, 'hello');
+    });
+
+    test('index 1 returns first upper case', () {
+      final result = camel.transform('hello', 1);
+
+      expect(result, 'Hello');
+    });
+  });
+
+  group('#convert', () {
+    test('returns camel case', () {
+      final result = camel.convert('hello world');
+
+      expect(result, 'helloWorld');
+    });
+
+    test('trims string', () {
+      final result = camel.convert('  hello world  ');
+
+      expect(result, 'helloWorld');
     });
   });
 }
