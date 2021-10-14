@@ -7,37 +7,39 @@
 
 > Transform a string between `camelCase`, `PascalCase`, `Capital Case`, `snake_case`, `param-case`, `CONSTANT_CASE` and others.
 
-### Core
+---
+
+## Core
 
 These functions come with [`package:change_case`]
 
 - [Change Case](#change-case)
-    - [Core](#core)
-      - [toCamelCase](#tocamelcase)
-      - [toCapitalCase](#tocapitalcase)
-      - [toConstantCase](#toconstantcase)
-      - [toDotCase](#todotcase)
-      - [toHeaderCase](#toheadercase)
-      - [toNoCase](#tonocase)
-      - [toParamCase](#toparamcase)
-      - [toPascalCase](#topascalcase)
-      - [toPathCase](#topathcase)
-      - [toSentenceCase](#tosentencecase)
-      - [toSnakeCase](#tosnakecase)
-    - [Other Case Utilities](#other-case-utilities)
-      - [toTitleCase](#totitlecase)
-      - [toSwapCase](#toswapcase)
-      - [isLowerCase](#islowercase)
-      - [isUpperCase](#isuppercase)
-      - [toLowerCaseFirst](#tolowercasefirst)
-      - [toUpperCaseFirst](#touppercasefirst)
-      - [toSpongeCase](#tospongecase)
+  - [Core](#core)
+    - [toCamelCase](#tocamelcase)
+    - [toCapitalCase](#tocapitalcase)
+    - [toConstantCase](#toconstantcase)
+    - [toDotCase](#todotcase)
+    - [toHeaderCase](#toheadercase)
+    - [toNoCase](#tonocase)
+    - [toParamCase](#toparamcase)
+    - [toPascalCase](#topascalcase)
+    - [toPathCase](#topathcase)
+    - [toSentenceCase](#tosentencecase)
+    - [toSnakeCase](#tosnakecase)
+  - [Other Case Utilities](#other-case-utilities)
+    - [toTitleCase](#totitlecase)
+    - [toSwapCase](#toswapcase)
+    - [isLowerCase](#islowercase)
+    - [isUpperCase](#isuppercase)
+    - [toLowerCaseFirst](#tolowercasefirst)
+    - [toUpperCaseFirst](#touppercasefirst)
+    - [toSpongeCase](#tospongecase)
   - [Configuration](#configuration)
-    - [Patterns](#patterns)
-    - [Placeholder](#placeholder)
+  - [Patterns](#patterns)
+  - [Placeholder](#placeholder)
   - [Related](#related)
 
-#### [toCamelCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/camel)
+### [toCamelCase](https://github.com/mrgnhnt96/change_case/blob/main/lib/src/cases/camel.dart)
 
 > Transform into a string with the separator denoted by the next word capitalized.
 
@@ -45,7 +47,7 @@ These functions come with [`package:change_case`]
 'test string'.toCamelCase(); // 'testString'
 ```
 
-#### [toCapitalCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/capital)
+### [toCapitalCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/capital.dart)
 
 > Transform into a space separated string with each word capitalized.
 
@@ -53,7 +55,7 @@ These functions come with [`package:change_case`]
 'test string'.toCapitalCase(); // 'Test String'
 ```
 
-#### [toConstantCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/constant)
+### [toConstantCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/constant.dart)
 
 > Transform into upper case string with an underscore between words.
 
@@ -61,7 +63,7 @@ These functions come with [`package:change_case`]
 'test string'.toConstantCase(); // 'TEST_STRING'
 ```
 
-#### [toDotCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/dot)
+### [toDotCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/dot.dart)
 
 > Transform into a lower case string with a period between words.
 
@@ -69,7 +71,7 @@ These functions come with [`package:change_case`]
 'test string'.toDotCase(); // 'test.string'
 ```
 
-#### [toHeaderCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/header)
+### [toHeaderCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/header.dart)
 
 > Transform into a dash separated string of capitalized words.
 
@@ -77,7 +79,7 @@ These functions come with [`package:change_case`]
 'test string'.toHeaderCase(); // 'Test-String'
 ```
 
-#### [toNoCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/no)
+### [toNoCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/no.dart)
 
 > Transform into a lower cased string with spaces between words.
 
@@ -85,7 +87,7 @@ These functions come with [`package:change_case`]
 'testString'.toNoCase(); // 'test string'
 ```
 
-#### [toParamCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/param)
+### [toParamCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/param.dart)
 
 > Transform into a lower cased string with dashes between words.
 
@@ -93,7 +95,7 @@ These functions come with [`package:change_case`]
 'test string'.toParamCase(); // 'test-string'
 ```
 
-#### [toPascalCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/pascal)
+### [toPascalCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/pascal.dart)
 
 > Transform into a string of capitalized words without separators.
 
@@ -101,7 +103,7 @@ These functions come with [`package:change_case`]
 'test string'.toPascalCase(); // 'TestString'
 ```
 
-#### [toPathCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/path)
+### [toPathCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/path.dart)
 
 > Transform into a lower case string with slashes between words.
 
@@ -113,7 +115,7 @@ These functions come with [`package:change_case`]
 
 ```
 
-#### [toSentenceCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/sentence)
+### [toSentenceCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/sentence.dart)
 
 > Transform into a lower case with spaces between words, then capitalize the string.
 
@@ -121,7 +123,7 @@ These functions come with [`package:change_case`]
 'testString'.toSentenceCase(); // 'Test string'
 ```
 
-#### [toSnakeCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/snake)
+### [toSnakeCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/snake.dart)
 
 > Transform into a lower case string with underscores between words.
 
@@ -129,9 +131,11 @@ These functions come with [`package:change_case`]
 'test string'.toSnakeCase(); // 'test_string'
 ```
 
-### Other Case Utilities
+---
 
-#### [toTitleCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/title)
+## Other Case Utilities
+
+### [toTitleCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/title.dart)
 
 > Transform a string into title case following English rules.
 
@@ -139,7 +143,7 @@ These functions come with [`package:change_case`]
 'a simple test'.toTitleCase(); // 'A Simple Test'
 ```
 
-#### [toSwapCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/swap)
+### [toSwapCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/swap.dart)
 
 > Transform a string by swapping every character from upper to lower case, or lower to upper case.
 
@@ -147,7 +151,7 @@ These functions come with [`package:change_case`]
 'Test String'.toSwapCase(); // 'tEST sTRING'
 ```
 
-#### [isLowerCase](https://github.com/mrgnhnt96/change_case/blob/main/lib/src/change_case.dart)
+### [isLowerCase](https://github.com/mrgnhnt96/change_case/blob/main/lib/src/change_case.dart)
 
 > Returns `true` if the string is lower case only.
 
@@ -155,7 +159,7 @@ These functions come with [`package:change_case`]
 'test string'.isLowerCase(); // true
 ```
 
-#### [isUpperCase](https://github.com/mrgnhnt96/change_case/blob/main/lib/src/change_case.dart)
+### [isUpperCase](https://github.com/mrgnhnt96/change_case/blob/main/lib/src/change_case.dart)
 
 > Returns `true` if the string is upper case only.
 
@@ -163,7 +167,7 @@ These functions come with [`package:change_case`]
 'test string'.isUpperCase(); // false
 ```
 
-#### [toLowerCaseFirst](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/lower_first)
+### [toLowerCaseFirst](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/lower_first.dart)
 
 > Transforms the string with the first character in lower cased.
 
@@ -171,7 +175,7 @@ These functions come with [`package:change_case`]
 'TEST'.toLowerCaseFirst(); // 'tEST'
 ```
 
-#### [toUpperCaseFirst](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/upper_first)
+### [toUpperCaseFirst](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/upper_first.dart)
 
 > Transforms the string with the first character in upper cased.
 
@@ -179,7 +183,7 @@ These functions come with [`package:change_case`]
 'test'.toUpperCaseFirst(); // 'Test'
 ```
 
-#### [toSpongeCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/sponge)
+### [toSpongeCase](https://github.com/mrgnhnt96/change_case/tree/main/lib/src/cases/sponge.dart)
 
 > Transform into a string with random capitalization applied.
 
@@ -194,7 +198,7 @@ function listed above.
 
 __I don't suggest changing these unless you know what you are doing 😁__
 
-### Patterns
+## Patterns
 
 Change case uses `RegExp` to split & replace characters of the string.
 While they are great at what they do, you may want to update or add new patterns.
@@ -238,7 +242,7 @@ The default patterns are:
 
 ---
 
-### Placeholder
+## Placeholder
 
 > can be configured with [`ChangeCaseConfig`]`.setUp(placeholder: ...)`
 
