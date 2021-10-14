@@ -2,6 +2,9 @@ import 'package:change_case/src/change_case_config.dart';
 import 'package:test/test.dart';
 
 void main() {
+  // resets the config to the default
+  setUp(ChangeCaseConfig.setUp);
+
   group('placeholder', () {
     test('return • as default placeholder', () {
       expect(ChangeCaseConfig.getPlaceholder(), '•');
@@ -38,6 +41,15 @@ void main() {
       ]);
     });
 
+    test('should return default when provided empty list', () {
+      ChangeCaseConfig.setUp(splitPatterns: []);
+
+      expect(ChangeCaseConfig.getSplitPatterns(), [
+        lowerOrNumToUpperPattern,
+        upperToLowerPattern,
+      ]);
+    });
+
     test('should return provided split patterns', () {
       const newSplitPatterns = <Pattern>[' ', '-', '_', '.'];
 
@@ -63,6 +75,14 @@ void main() {
     });
 
     test('should return default strip patterns', () {
+      expect(ChangeCaseConfig.getStripPatterns(), [
+        removeNonAlphaPattern,
+      ]);
+    });
+
+    test('should return default when provided empty list', () {
+      ChangeCaseConfig.setUp(stripPatterns: []);
+
       expect(ChangeCaseConfig.getStripPatterns(), [
         removeNonAlphaPattern,
       ]);
