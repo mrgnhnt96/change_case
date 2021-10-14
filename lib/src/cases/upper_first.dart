@@ -6,7 +6,7 @@ class UpperFirst extends ChangeCaseHelper {
   String get deliminator => throw UnimplementedError();
 
   @override
-  String transform(String section, int index, List<String> parts) {
+  String transform(String section, int index) {
     if (section.isEmpty) return section;
 
     var firstLetter = '';
@@ -24,5 +24,5 @@ class UpperFirst extends ChangeCaseHelper {
   }
 
   @override
-  String convert(String stringToFormat) => transform(stringToFormat, 0, []);
+  String convert(String stringToFormat) => transform(stringToFormat, 0);
 }

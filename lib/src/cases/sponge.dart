@@ -8,7 +8,7 @@ class Sponge extends ChangeCaseHelper {
   String get deliminator => throw UnimplementedError();
 
   @override
-  String transform(String section, int index, List<String> parts) {
+  String transform(String section, int index) {
     final buffer = StringBuffer();
 
     final rand = Random();
@@ -26,5 +26,5 @@ class Sponge extends ChangeCaseHelper {
   }
 
   @override
-  String convert(String stringToFormat) => transform(stringToFormat, 0, []);
+  String convert(String stringToFormat) => transform(stringToFormat, 0);
 }

@@ -10,6 +10,5 @@ class Path extends ChangeCaseHelper {
   String get deliminator => _separator;
 
   @override
-  String transform(String section, int index, List<String> parts) =>
-      section.toLowerCase();
+  String transform(String section, int index) => section.toLowerCase();
 }

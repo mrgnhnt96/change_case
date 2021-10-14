@@ -6,7 +6,7 @@ class Swap extends ChangeCaseHelper {
   String get deliminator => '_';
 
   @override
-  String transform(String section, int index, List<String> parts) {
+  String transform(String section, int index) {
     final buffer = StringBuffer();
 
     for (final letter in section.split('')) {
@@ -24,5 +24,5 @@ class Swap extends ChangeCaseHelper {
   }
 
   @override
-  String convert(String stringToFormat) => transform(stringToFormat, 0, []);
+  String convert(String stringToFormat) => transform(stringToFormat, 0);
 }

@@ -21,7 +21,7 @@ abstract class ChangeCaseHelper {
   final String _placeHolder;
 
   /// transforms a section from the string
-  String transform(String section, int index, List<String> parts);
+  String transform(String section, int index);
 
   /// transforms the [stringToFormat]
   String convert(String stringToFormat) {
@@ -32,7 +32,7 @@ abstract class ChangeCaseHelper {
     // Transform each token independently
     return rawString
         .split(_placeHolder)
-        .map((s) => transform(s, index++, []))
+        .map((s) => transform(s, index++))
         .join(deliminator);
   }
 

@@ -6,6 +6,5 @@ class No extends ChangeCaseHelper {
   String get deliminator => ' ';
 
   @override
-  String transform(String section, int index, List<String> parts) =>
-      section.toLowerCase();
+  String transform(String section, int index) => section.toLowerCase();
 }

@@ -7,7 +7,7 @@ class Capital extends ChangeCaseHelper {
   String get deliminator => ' ';
 
   @override
-  String transform(String section, int index, List<String> parts) {
-    return UpperFirst().transform(section.toLowerCase(), index, parts);
+  String transform(String section, int index) {
+    return UpperFirst().transform(section.toLowerCase(), index);
   }
 }

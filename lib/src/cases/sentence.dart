@@ -7,10 +7,10 @@ class Sentence extends ChangeCaseHelper {
   String get deliminator => ' ';
 
   @override
-  String transform(String section, int index, List<String> parts) {
+  String transform(String section, int index) {
     section = section.toLowerCase();
 
-    if (index == 0) section = UpperFirst().transform(section, index, parts);
+    if (index == 0) section = UpperFirst().transform(section, index);
 
     return section;
   }

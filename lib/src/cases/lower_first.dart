@@ -6,7 +6,7 @@ class LowerFirst extends ChangeCaseHelper {
   String get deliminator => throw UnimplementedError();
 
   @override
-  String transform(String section, int index, List<String> parts) {
+  String transform(String section, int index) {
     if (section.isEmpty) return section;
 
     final string = section.substring(0, 1).toLowerCase() + section.substring(1);
@@ -15,5 +15,5 @@ class LowerFirst extends ChangeCaseHelper {
   }
 
   @override
-  String convert(String stringToFormat) => transform(stringToFormat, 0, []);
+  String convert(String stringToFormat) => transform(stringToFormat, 0);
 }

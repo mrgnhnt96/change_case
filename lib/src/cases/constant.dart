@@ -6,6 +6,5 @@ class Constant extends ChangeCaseHelper {
   String get deliminator => '_';
 
   @override
-  String transform(String section, int index, List<String> parts) =>
-      section.toUpperCase();
+  String transform(String section, int index) => section.toUpperCase();
 }

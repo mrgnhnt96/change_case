@@ -14,8 +14,7 @@ class Title extends ChangeCaseHelper {
   String get deliminator => '_';
 
   @override
-  String transform(String section, int index, List<String> parts) =>
-      throw UnimplementedError();
+  String transform(String section, int index) => throw UnimplementedError();
 
   @override
   String convert(String stringToFormat) {
