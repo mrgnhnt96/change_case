@@ -1,38 +1,18 @@
+import 'package:change_case/src/change_case_config.dart';
 import 'package:meta/meta.dart';
-
-// Support camel case ("camelCase" -> "camel Case"
-// and "CAMELCase" -> "CAMEL Case").
-final _lowerOrNumToUpperPattern = RegExp('([a-z0-9])(?:•)*([A-Z])');
-final _upperToLowerPattern = RegExp('([A-Z])(?:•)*([A-Z][a-z])');
-
-final _defaults = [
-  _lowerOrNumToUpperPattern,
-  _upperToLowerPattern,
-];
-
-final _defaultStrip = RegExp('[^A-Z0-9]+', caseSensitive: false);
-
-// Dunno if we wanna use this or not...
-// ignore: unused_element
-final _lowerToNumOrUpperStrip = RegExp('([a-z])([A-Z0-9])');
 
 /// {@template change_case.options}
 /// The options to use when converting a string.
 /// {@endtemplate}
 abstract class ChangeCaseHelper {
   /// {@macro change_case.options}
-  ChangeCaseHelper({
-    List<RegExp>? split,
-    RegExp? strip,
-  })  : split = split ?? _defaults,
-        strip = strip ?? _defaultStrip,
-        _placeHolder = '•';
+  ChangeCaseHelper() : _placeHolder = '•';
 
   /// the pattern to split the string
-  final List<RegExp> split;
+  List<Pattern> get _split => ChangeCaseConfig.getSplitPatterns();
 
   /// the pattern to strip the string of characters
-  final RegExp strip;
+  List<Pattern> get _strip => ChangeCaseConfig.getStripPatterns();
 
   /// the deliminator to use when joining the string
   String get deliminator;
@@ -56,28 +36,31 @@ abstract class ChangeCaseHelper {
         .join(deliminator);
   }
 
-  /// splits the [string] with the [split] pattern
+  /// splits the [string] with the patterns retrieved from the config
+  /// `ChangeCaseConfig.getSplitPatterns()`
   @protected
   String splitString(String string) {
-    var updatedString = string;
-
-    for (final pattern in split) {
-      updatedString = updatedString.replaceAllMapped(
+    for (final pattern in _split) {
+      string = string.replaceAllMapped(
         pattern,
         (match) => match.group(1)! + _placeHolder + match.group(2)!,
       );
     }
 
-    return updatedString;
+    return string;
   }
 
-  /// strips the [string] of characters with the [strip] pattern
+  /// strips the [string] of matching characters from patterns
+  /// retrieved from the config
+  /// `ChangeCaseConfig.getSplitPatterns()`
   @protected
   String stripString(String string) {
-    final splitStr = splitString(string);
+    string = splitString(string);
 
-    final stripStr = splitStr.replaceAllMapped(strip, (match) => _placeHolder);
+    for (final pattern in _strip) {
+      string = string.replaceAllMapped(pattern, (match) => _placeHolder);
+    }
 
-    return stripStr;
+    return string;
   }
 }
