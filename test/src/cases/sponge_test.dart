@@ -27,6 +27,13 @@ void main() {
 
       expect(result.length, string.length);
     });
+
+    test('returns same word', () {
+      const string = 'HELLO';
+      final result = sponge.transform(string, 1);
+
+      expect(result.toLowerCase(), string.toLowerCase());
+    });
   });
 
   group('#convert', () {
@@ -41,6 +48,13 @@ void main() {
       final result = sponge.convert(string);
 
       expect(result.length, string.length);
+    });
+
+    test('returns same word', () {
+      const string = 'HELLO';
+      final result = sponge.convert(string);
+
+      expect(result.toLowerCase(), string.toLowerCase());
     });
   });
 }
