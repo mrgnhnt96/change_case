@@ -1,3 +1,7 @@
+# 1.0.1
+
+- [BREAKING CHANGE]: change toDotCase() format to `enum.Value` to `enum.value`
+
 # 1.0.0+3
 
 - Update doc comments for each case to contain an example of the expected output

@@ -6,5 +6,5 @@ class Dot extends ChangeCaseHelper {
   String get deliminator => '.';
 
   @override
-  String transform(String section, int index) => section;
+  String transform(String section, int index) => section.toLowerCase();
 }

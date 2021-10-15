@@ -18,7 +18,7 @@ void main() {
     test('index 0 returns original', () {
       final result = dot.transform('Hello', 0);
 
-      expect(result, 'Hello');
+      expect(result, 'hello');
     });
 
     test('index 1 returns original', () {

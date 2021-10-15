@@ -26,7 +26,7 @@ enum ChangeCaseType {
   ///
   /// example:
   ///
-  /// `'hello World' -> 'hello.World'`
+  /// `'hello World' -> 'hello.world'`
   /// {@endtemplate}
   dot,
 
