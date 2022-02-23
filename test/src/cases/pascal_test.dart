@@ -1,5 +1,6 @@
-import 'package:change_case/src/cases/pascal.dart';
 import 'package:test/test.dart';
+
+import 'package:change_case/src/cases/pascal.dart';
 
 void main() {
   late Pascal pascal;

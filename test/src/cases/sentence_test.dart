@@ -1,5 +1,6 @@
-import 'package:change_case/src/cases/sentence.dart';
 import 'package:test/test.dart';
+
+import 'package:change_case/src/cases/sentence.dart';
 
 void main() {
   late Sentence sentence;

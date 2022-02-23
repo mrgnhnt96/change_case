@@ -1,5 +1,6 @@
-import 'package:change_case/src/cases/sponge.dart';
 import 'package:test/test.dart';
+
+import 'package:change_case/src/cases/sponge.dart';
 
 void main() {
   late Sponge sponge;

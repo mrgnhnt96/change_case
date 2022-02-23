@@ -1,5 +1,6 @@
-import 'package:change_case/src/change_case_config.dart';
 import 'package:meta/meta.dart';
+
+import 'package:change_case/src/change_case_config.dart';
 
 /// {@template change_case.options}
 /// The options to use when converting a string.

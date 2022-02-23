@@ -1,5 +1,6 @@
-import 'package:change_case/src/cases/title.dart';
 import 'package:test/test.dart';
+
+import 'package:change_case/src/cases/title.dart';
 
 void main() {
   late Title title;

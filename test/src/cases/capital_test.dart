@@ -1,5 +1,6 @@
-import 'package:change_case/src/cases/capital.dart';
 import 'package:test/test.dart';
+
+import 'package:change_case/src/cases/capital.dart';
 
 void main() {
   late Capital capital;

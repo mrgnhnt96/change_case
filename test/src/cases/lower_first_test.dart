@@ -1,5 +1,6 @@
-import 'package:change_case/src/cases/lower_first.dart';
 import 'package:test/test.dart';
+
+import 'package:change_case/src/cases/lower_first.dart';
 
 void main() {
   late LowerFirst lowerFirst;

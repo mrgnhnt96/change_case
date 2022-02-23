@@ -1,5 +1,6 @@
-import 'package:change_case/src/cases/camel.dart';
 import 'package:test/test.dart';
+
+import 'package:change_case/src/cases/camel.dart';
 
 void main() {
   late Camel camel;

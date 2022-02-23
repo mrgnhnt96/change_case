@@ -1,5 +1,6 @@
-import 'package:change_case/src/cases/dot.dart';
 import 'package:test/test.dart';
+
+import 'package:change_case/src/cases/dot.dart';
 
 void main() {
   late Dot dot;

@@ -1,6 +1,6 @@
-import 'package:change_case/src/change_case_helper.dart';
 import 'package:test/test.dart';
 
+import 'package:change_case/src/change_case_helper.dart';
 import '../util/fake_change_case_helper.dart';
 
 void main() {

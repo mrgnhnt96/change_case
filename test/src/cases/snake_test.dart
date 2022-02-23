@@ -1,5 +1,6 @@
-import 'package:change_case/src/cases/snake.dart';
 import 'package:test/test.dart';
+
+import 'package:change_case/src/cases/snake.dart';
 
 void main() {
   late Snake snake;

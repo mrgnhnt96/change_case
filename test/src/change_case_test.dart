@@ -1,5 +1,6 @@
-import 'package:change_case/change_case.dart';
 import 'package:test/test.dart';
+
+import 'package:change_case/change_case.dart';
 
 void main() {
   group('#isLowerCase', () {

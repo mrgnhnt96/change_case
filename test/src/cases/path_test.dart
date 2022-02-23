@@ -1,5 +1,6 @@
-import 'package:change_case/src/cases/path.dart';
 import 'package:test/test.dart';
+
+import 'package:change_case/src/cases/path.dart';
 
 void main() {
   late Path path;

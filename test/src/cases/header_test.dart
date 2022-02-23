@@ -1,5 +1,6 @@
-import 'package:change_case/src/cases/header.dart';
 import 'package:test/test.dart';
+
+import 'package:change_case/src/cases/header.dart';
 
 void main() {
   late Header header;

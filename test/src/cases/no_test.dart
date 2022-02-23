@@ -1,5 +1,6 @@
-import 'package:change_case/src/cases/no.dart';
 import 'package:test/test.dart';
+
+import 'package:change_case/src/cases/no.dart';
 
 void main() {
   late No no;

@@ -1,5 +1,6 @@
-import 'package:change_case/src/change_case_config.dart';
 import 'package:test/test.dart';
+
+import 'package:change_case/src/change_case_config.dart';
 
 void main() {
   // resets the config to the default

@@ -1,5 +1,6 @@
-import 'package:change_case/src/cases/kebab.dart';
 import 'package:test/test.dart';
+
+import 'package:change_case/src/cases/kebab.dart';
 
 void main() {
   late Kebab kebab;

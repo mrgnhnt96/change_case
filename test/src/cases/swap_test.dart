@@ -1,5 +1,6 @@
-import 'package:change_case/src/cases/swap.dart';
 import 'package:test/test.dart';
+
+import 'package:change_case/src/cases/swap.dart';
 
 void main() {
   late Swap swap;

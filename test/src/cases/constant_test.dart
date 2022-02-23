@@ -1,5 +1,6 @@
-import 'package:change_case/src/cases/constant.dart';
 import 'package:test/test.dart';
+
+import 'package:change_case/src/cases/constant.dart';
 
 void main() {
   late Constant constant;
