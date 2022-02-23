@@ -18,7 +18,7 @@ prep:
   - dart pub upgrade
   - dart analyze lib test
   - dart format lib test
-  - dart pub global run import_sorter:main
+  - dart pub global run import_sorter:main --no-comments
 
 publish:
   - $runtests
