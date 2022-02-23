@@ -8,3 +8,4 @@ pubspec.lock
 coverage/
 .codecov_secret
 codecov
+publish_package.sh

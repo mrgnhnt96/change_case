@@ -1,7 +1,24 @@
 runtests:
-  - flutter test --coverage
+  - rm -rf coverage
+  - dart run test -j 1 --coverage coverage -r expanded --test-randomize-ordering-seed random --timeout 60s
+  - $coverage
+
+coverage:
+  - format_coverage --lcov --in=coverage --out=coverage/lcov.info --packages=.packages --report-on=lib
   - genhtml coverage/lcov.info -o coverage
   - open coverage/index.html
+  - curl -Os https://uploader.codecov.io/latest/macos/codecov
+  - chmod +x codecov
+
+uploadcoverage:
+  - val=$(cat .codecov_secret); ./codecov -t $val
+
+prep:
+  - flutter clean
+  - dart pub upgrade
+  - dart analyze lib test
+  - dart format lib test
+  - dart pub global run import_sorter:main
 
 publish:
   - $runtests
