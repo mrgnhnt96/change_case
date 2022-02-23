@@ -3,8 +3,9 @@ import 'dart:math';
 import 'package:change_case/src/change_case_helper.dart';
 
 final _smallWords = RegExp(
-    r'\b(?:an?d?|a[st]|because|but|by|en|for|i[fn]|neither|nor|o[fnr]|only|over|per|so|some|tha[tn]|the|to|up|upon|vs?\.?|versus|via|when|with|without|yet)\b', // ignore:line_length
-    caseSensitive: false);
+  r'\b(?:an?d?|a[st]|because|but|by|en|for|i[fn]|neither|nor|o[fnr]|only|over|per|so|some|tha[tn]|the|to|up|upon|vs?\.?|versus|via|when|with|without|yet)\b', // ignore:line_length
+  caseSensitive: false,
+);
 final _tokens = RegExp(r'[^\s:–—-]+|.');
 final _whiteSpace = RegExp(r'\s+');
 final _isManualCase = RegExp(r'.(?=[A-Z]|\..)');

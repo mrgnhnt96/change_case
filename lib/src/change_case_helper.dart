@@ -27,14 +27,14 @@ abstract class ChangeCaseHelper {
   /// transforms the [stringToFormat]
   String convert(String stringToFormat) {
     // split
-    stringToFormat = splitString(stringToFormat);
+    final split = splitString(stringToFormat);
 
     // strip
-    stringToFormat = stripString(stringToFormat);
+    final stripped = stripString(split);
 
     var index = 0;
     // Transform each token independently
-    return stringToFormat
+    return stripped
         .split(_placeHolder)
         .map((s) => transform(s, index++))
         .join(deliminator);
@@ -45,14 +45,15 @@ abstract class ChangeCaseHelper {
   @protected
   @visibleForTesting
   String splitString(String string) {
+    var str = string;
     for (final pattern in _split) {
-      string = string.replaceAllMapped(
+      str = str.replaceAllMapped(
         pattern,
         (match) => match.group(1)! + _placeHolder + match.group(2)!,
       );
     }
 
-    return string;
+    return str;
   }
 
   /// strips the [string] of matching characters from patterns
@@ -61,10 +62,11 @@ abstract class ChangeCaseHelper {
   @protected
   @visibleForTesting
   String stripString(String string) {
+    var str = string;
     for (final pattern in _strip) {
-      string = string.replaceAllMapped(pattern, (match) => _placeHolder);
+      str = str.replaceAllMapped(pattern, (match) => _placeHolder);
     }
 
-    return string;
+    return str;
   }
 }

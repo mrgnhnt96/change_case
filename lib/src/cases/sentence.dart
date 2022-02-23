@@ -8,11 +8,11 @@ class Sentence extends ChangeCaseHelper {
 
   @override
   String transform(String section, int index) {
-    section = section.toLowerCase();
+    var sect = section.toLowerCase();
 
-    if (index == 0) section = UpperFirst().transform(section, index);
+    if (index == 0) sect = UpperFirst().transform(sect, index);
 
-    return section;
+    return sect;
   }
 
   @override
