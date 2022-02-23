@@ -10,7 +10,7 @@ coverage:
   - curl -Os https://uploader.codecov.io/latest/macos/codecov
   - chmod +x codecov
 
-uploadcoverage:
+upload_coverage:
   - val=$(cat .codecov_secret); ./codecov -t $val
 
 prep:
