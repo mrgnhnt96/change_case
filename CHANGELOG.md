@@ -1,3 +1,9 @@
+# 1.0.2
+
+- Update dependencies (minor)
+- Fix lint errors
+- Update dev scripts
+
 # 1.0.1
 
 - [BREAKING CHANGE]: change toDotCase() format to `enum.Value` to `enum.value`
