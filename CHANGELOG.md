@@ -1,3 +1,8 @@
+# 1.1.0
+
+- Ignore apostrophes when stripping non-alphanumeric characters
+- Add some e2e tests
+
 # 1.0.2
 
 - Update dependencies (minor)
@@ -15,7 +20,7 @@
 # 1.0.0+2
 
 - Add example
-  
+
 # 1.0.0+1
 
 - Update links to github
