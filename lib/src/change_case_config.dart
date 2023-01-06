@@ -74,7 +74,7 @@ class ChangeCaseConfig {
   ];
 
   /// ```dart
-  /// RegExp('[^A-Z0-9]+', caseSensitive: false)
+  /// RegExp('[^A-Z0-9']+', caseSensitive: false)
   /// ```
   ///
   /// _matches any non-alphanumeric char_
@@ -95,7 +95,7 @@ class ChangeCaseConfig {
   /// - camelCase
   /// - PascalCase
   static final removeNonAlphaPattern =
-      RegExp('[^A-Z0-9]+', caseSensitive: false);
+      RegExp("[^A-Z0-9']+", caseSensitive: false);
 
   /// ```dart
   /// RegExp('([a-z])([A-Z0-9])')

@@ -68,7 +68,7 @@ void main() {
     });
 
     test('should remove non alphanumeric', () {
-      const string = '!@#\$%^&*()_+-=[]{}|;\':",./<>?';
+      const string = r'!@#\$%^&*()_+-=[]{}|;:",./<>?';
       final result = helper.stripString(string);
 
       expect(result, ph);
