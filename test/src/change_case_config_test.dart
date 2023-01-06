@@ -61,7 +61,7 @@ void main() {
   });
 
   group('strip patterns', () {
-    final removeNonAlphaPattern = RegExp('[^A-Z0-9]+', caseSensitive: false);
+    final removeNonAlphaPattern = RegExp("[^A-Z0-9']+", caseSensitive: false);
     final lowerToNumOrUpperPattern = RegExp('([a-z])([A-Z0-9])');
 
     test('#removeNonAlphaPattern', () {
