@@ -1,3 +1,7 @@
+# 1.2.0 | 11.29.2023
+
+- Update dependencies
+
 # 1.1.0
 
 - Ignore apostrophes when stripping non-alphanumeric characters
