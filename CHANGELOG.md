@@ -1,6 +1,7 @@
-# 1.2.0 | 11.29.2023
+# 2.0.0 | 11.29.2023
 
 - Update dependencies
+- Update environment to Dart 3.0.0
 
 # 1.1.0
 
