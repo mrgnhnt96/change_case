@@ -15,9 +15,9 @@ void main() {
     });
 
     test(r"is '\' when provided", () {
-      final _path = Path(r'\');
+      final path = Path(r'\');
 
-      expect(_path.deliminator, r'\');
+      expect(path.deliminator, r'\');
     });
   });
 
