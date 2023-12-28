@@ -1,3 +1,8 @@
+# 2.0.1 | 12.28.2023
+
+- Update dependencies
+  - Meta to ">=1.7.0 <2.0.0"
+
 # 2.0.0 | 11.29.2023
 
 - Update dependencies
