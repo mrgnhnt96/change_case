@@ -7,20 +7,12 @@ class UpperFirst extends ChangeCaseHelper {
 
   @override
   String transform(String section, int index) {
-    if (section.isEmpty) return section;
-
-    var firstLetter = '';
-
-    var index = 1;
-    for (final letter in section.split('')) {
-      if (RegExp(r'\w').hasMatch(letter)) {
-        firstLetter = letter.toUpperCase();
-        break;
+    for (var i = 0; i < section.length; i++) {
+      if (RegExp(r'\w').hasMatch(section[i])) {
+        return section[i].toUpperCase() + section.substring(i + 1);
       }
-      index++;
     }
-
-    return firstLetter + section.substring(index);
+    return section;
   }
 
   @override
