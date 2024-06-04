@@ -1,3 +1,5 @@
 test/**
 coverage/**
 codecov
+scripts.yaml
+analysis_options.yaml
