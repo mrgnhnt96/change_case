@@ -21,6 +21,12 @@ void main() {
 
       expect(result, 'Hello');
     });
+
+    test('returns unchanged if no word character matches', () {
+      final result = upperfirst.transform(' # ', 0);
+
+      expect(result, ' # ');
+    });
   });
 
   group('#convert', () {
@@ -34,6 +40,18 @@ void main() {
       final result = upperfirst.convert('  hello world  ');
 
       expect(result, 'Hello world  ');
+    });
+
+    test('trims left non word characters', () {
+      final result = upperfirst.convert('###house  ');
+
+      expect(result, 'House  ');
+    });
+
+    test('returns unchanged if no word character matches', () {
+      final result = upperfirst.convert(' # ');
+
+      expect(result, ' # ');
     });
   });
 }
