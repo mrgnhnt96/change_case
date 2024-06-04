@@ -1,0 +1,45 @@
+test:
+  - sip test --test-randomize-ordering-seed random --timeout 60s
+
+format: dart format .
+analyze: dart analyze .
+
+prep:
+  (command):
+    - (+) {$format} --set-exit-if-changed
+    - (+) {$analyze} --fatal-infos --fatal-warnings
+    - (+) {$prep:pubspec}
+    - sip pub get -r
+  pubspec: |
+    # get version from changelog
+    version=$(grep -m 1 "# " CHANGELOG.md | awk '{print $2}')
+
+    echo "Updating pubspec.yaml version to $version"
+    sed -i '' "s|^version: .*|version: $version|g" "pubspec.yaml"
+
+publish:
+  (bail):
+  (command):
+    - sip test --bail --recursive --concurrent
+    - "{$prep}"
+    - dart pub publish
+    - "{$publish:commit}"
+    - "{$publish:tag}"
+    - "{$publish:_push}"
+  commit: |
+    # get version from changelog
+    version=$(grep -m 1 "# " CHANGELOG.md | awk '{print $2}')
+
+    echo "Committing version $version"
+    git add .
+    git commit -m "v$version"
+  tag: |
+    # get version from changelog
+    version=$(grep -m 1 "# " CHANGELOG.md | awk '{print $2}')
+
+    echo "Tagging version $version"
+    git tag -a "v$version" -m "v$version"
+  _push: |
+    echo "Pushing to origin"
+    git push
+    git push --tags
