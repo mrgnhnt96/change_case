@@ -1,3 +1,9 @@
+# 2.1.0 | 6.4.2024
+
+- Fix crash where match wasn't found during transformation
+  - Thanks for contributing [@zmuranaka](https://github.com/zmuranaka)!
+- Some minor dev enhancements
+
 # 2.0.1 | 12.28.2023
 
 - Update dependencies
