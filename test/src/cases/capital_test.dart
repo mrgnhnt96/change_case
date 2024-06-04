@@ -1,13 +1,13 @@
+import 'package:change_case/src/cases/capital.dart';
 import 'package:change_case/src/change_case_config.dart';
 import 'package:test/test.dart';
-
-import 'package:change_case/src/cases/capital.dart';
 
 void main() {
   late Capital capital;
 
   setUp(() {
     capital = Capital();
+    ChangeCaseConfig.setUp();
   });
 
   group('#deliminator', () {
