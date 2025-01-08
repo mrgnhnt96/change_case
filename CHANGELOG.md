@@ -1,3 +1,7 @@
+# 2.2.0 | 1.8.2025
+
+- Lowercase non-small words that are all uppercase during `toTitleCase`
+
 # 2.1.0 | 6.4.2024
 
 - Fix crash where match wasn't found during transformation
