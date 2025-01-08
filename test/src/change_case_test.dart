@@ -1,6 +1,5 @@
-import 'package:test/test.dart';
-
 import 'package:change_case/change_case.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('#isLowerCase', () {
@@ -85,7 +84,7 @@ void main() {
         toSentenceExpect: 'Hello',
         toSnakeExpect: 'hello',
         toSwapExpect: 'hello',
-        toTitleExpect: 'HELLO',
+        toTitleExpect: 'Hello',
         toUpperFirstExpect: 'HELLO',
       );
     });

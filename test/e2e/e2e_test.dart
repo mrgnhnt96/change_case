@@ -1,11 +1,10 @@
-import 'package:test/test.dart';
-
 import 'package:change_case/change_case.dart';
+import 'package:test/test.dart';
 
 void main() {
   test('Title Case', () {
     final tests = <String, String>{
-      "WE'RE ALMOST HERE": "WE'RE ALMOST HERE",
+      "WE'RE ALMOST HERE": "We're Almost Here",
       "we're almost here": "We're Almost Here",
       'test string': 'Test String',
       'Test String': 'Test String',
