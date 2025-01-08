@@ -22,17 +22,23 @@ class Title extends ChangeCaseHelper {
     final buffer = StringBuffer();
 
     for (final match in matches) {
-      final token = match.group(0)!;
+      var token = match.group(0)!;
       final index = match.start;
       final maxSectionLength = min(token.length + 1, section.length);
-
-      // Ignore already capitalized words.
-      final isManualCase = _isManualCase.hasMatch(token);
 
       // Ignore small words except at beginning or end.
       final isSmallWord = _smallWords.hasMatch(token);
       final isBeginning = index == 0;
       final isEnd = index + token.length == section.length;
+
+      // Lowercase the token if it is all caps.
+      final isAllCaps = token.toUpperCase() == token;
+      if (isAllCaps && !isSmallWord) {
+        token = token.toLowerCase();
+      }
+
+      // Ignore already capitalized words.
+      final isManualCase = _isManualCase.hasMatch(token);
 
       // Ignore urls
       final colonPosition = token.length;

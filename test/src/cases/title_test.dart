@@ -1,6 +1,5 @@
-import 'package:test/test.dart';
-
 import 'package:change_case/src/cases/title.dart';
+import 'package:test/test.dart';
 
 void main() {
   late Title title;
@@ -79,8 +78,16 @@ void main() {
       }
     });
 
-    test('skips upper case words', () {
+    test('lowers upper case words', () {
       const string = 'WORD';
+      final result = title.convert(string);
+
+      expect(result, isNot(equals(string)));
+      expect(result, 'Word');
+    });
+
+    test('skips lowering upper case words when small', () {
+      const string = 'A';
       final result = title.convert(string);
 
       expect(result, string);
